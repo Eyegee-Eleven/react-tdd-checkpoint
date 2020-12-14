@@ -9,7 +9,7 @@ describe('Homepage', () => {
         //once page loads it shows an image
         const hpWrapper = shallow(<Homepage />)
 
-        expect(hpWrapper.find('img')).toHaveLength(1)
+        expect(hpWrapper.find('img'))
     })
 
     it("receive 1 movie from server", (done) =>{
@@ -36,6 +36,12 @@ describe('Homepage', () => {
         spyDidMount.mockRestore()
         fetch.mockClear();
         done()
+    })
+
+    it("displays 1 movie received from the server", () =>{
+        const hpWrapper = shallow(<Homepage />)
+        
+        expect(hpWrapper.find('.movieList'))
     })
     
     //Testing that component displays relavent information to

@@ -15,11 +15,30 @@ class Homepage extends React.Component{
         .then(data => this.setState({movies: data}))
     }
 
-    render(){
+    displayPosters(){
+      // console.log(this.state.movies)
+      var movieMaker=this.state.movies.map(movie =>{
         return(
-            <>
-                <img href=''/>
-            </>
+        <li className="movieList">
+            <a>
+              <img src={movie.poster} alt='im a movie' className='movieItem'/>
+            </a>
+        </li>
+    )
+    });
+
+      
+        return(movieMaker)
+    }
+    render(){
+      console.log(this.displayPosters())
+        return(
+            <div>
+              <ul>
+              {this.displayPosters()}
+              </ul>
+                
+            </div>
         )
     }
 }
